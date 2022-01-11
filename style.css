@@ -1,1 +1,84 @@
-dl{color: red;}
+
+.nav{
+    height: 70px;
+    border-bottom: 1px solid black;
+    display: flex;
+    align-items: center;
+
+  }
+  .butten{
+    position: absolute;
+    top: 17px;
+    right: 17px;
+    padding: 6px 10px 6px 11px;
+    background-color: #ccd0d4;
+    -webkit-border-radius: 14px;
+    border-radius: 14px;
+    font-size: 11px;
+    color: #fff;
+    text-decoration: none;      
+  }
+  .nav-right-items{
+    display: flex;
+    margin-left: auto;
+  }
+  .nav-item{
+    margin-left: 10px;
+  }
+  .company-name{
+    margin-left: 20px;
+  }
+  .title{
+    text-align: center;
+    font-size: 3.5rem;
+    font-weight: bold;
+  }
+  .subtitle{
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 300;
+  }
+  .main{
+    width: 800px;
+    margin: 0 auto;
+    margin-top: 60px;
+  }
+  .box{
+    display: flex;
+  }
+
+  .box-item{
+    width: 500px;
+    height: 300px;
+    border: 1px solid black;
+    margin: 20px;
+    border-radius: 4px;
+  }
+  .box-item-title{
+      font-size: 1.5rem;
+      background: rgda(0,0,0,.03);
+      text-align: center;
+      height: 53px;
+      line-height: 53px;
+
+
+  }
+  html {
+    font-size: 20px;
+  }
+
+  p {
+    color: purple;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1vh;
+  }
+  a {
+    font-size: 0.8em;
+  }  
+  dl{color: red;}  
