@@ -1,4 +1,4 @@
-/* ì›¹í°íŠ¸
+/* 웹폰트 */
 @font-face{
 	font-family: 'NotoSans';
 	font-weight:100;
@@ -47,10 +47,10 @@
 		url('../fonts/NotoSans-Bold.woff') format('woff'),
 		url('../fonts/NotoSans-Bold.otf') format('opentype'),
 		url('../fonts/NotoSans-Bold.ttf') format('truetype');
-} */
+}
 
 html,body{width:100%;height:100%}
-body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,select,textarea,p,blockquote,th,td,legend,button{margin:0;padding:0;color:#666;font-family:"NotoSans",dotum,sans-serif;font-size:13px;font-weight:400;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,select,textarea,p,blockquote,th,td,legend,button{margin:0;padding:0;color:#666;font-family:"NotoSans",dotum,"돋움",sans-serif;font-size:13px;font-weight:400;}
 body {-webkit-text-size-adjust:none;}
 ul,ol,li{list-style:none;}
 em{font-style:normal}
@@ -62,7 +62,7 @@ li,p,dt,dd,div,span,td,th{word-break:break-all;}
 .ib{display:inline-block;}
 input , select {word-break:normal}
 button {-webkit-border-radius:0; background:none; cursor:pointer; background:#fff;border:none;}
-button::-moz-focus-inner {padding:0;border:0;} /* íŒŒì´ì–´í­ìŠ¤ ë²„íŠ¼ ë‚´ë¶€ ì—¬ë°± ì œê±° */
+button::-moz-focus-inner {padding:0;border:0;} /* 파이어폭스 버튼 내부 여백 제거 */
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
@@ -75,8 +75,8 @@ table{border-collapse:collapse;border-spacing:0;table-layout:fixed;}
 caption {overflow:hidden; width:0; height:0; font-size:0; line-height:0;}
 strong{font-weight:700;}
 
-/* í¼ìš”ì†Œ */
-/* placeholder ì»¬ëŸ¬ì§€ì • */
+/* 폼요소 */
+/* placeholder 컬러지정 */
 ::-webkit-input-placeholder {}
 ::-moz-placeholder {} /* firefox 19+ */
 :-ms-input-placeholder {} /* ie */
