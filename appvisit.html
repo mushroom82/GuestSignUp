@@ -8,14 +8,14 @@
 	<meta name="robots" content="" />
 	<title>방문신청 : 방문자관리11111</title>
 	<!-- 테스트 중인 CSS -->  
-    <link href="common.css" rel="stylesheet" type="text/css" />
-    <link href="reset.css" rel="stylesheet" type="text/css" />
+	<link href="/public/css/common.css" rel="stylesheet" type="text/css" />
+	<link href="/public/css/layout.css" rel="stylesheet" type="text/css" />
+	<link href="/public/css/style2.css" rel="stylesheet" type="text/css" />
+	<link href="/public/css/reset.css" rel="stylesheet" type="text/css" />
+	<link href="/public/css/etc.css" rel="stylesheet" type="text/css" />
 
-    <link href="layout.css" rel="stylesheet" type="text/css" />
-    <link href="style2.css" rel="stylesheet" type="text/css" />
-    
-    <link href="etc.css" rel="stylesheet" type="text/css" />
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <!--  <script src="https://www.ibsheet.com/codepen/js/lib/ibleaders/ibsheet7/ibsheetinfo.js"></script>
     <script src="https://www.ibsheet.com/codepen/js/lib/ibleaders/ibsheet7/ibsheet.js"></script>-->
     <script src='http://www.ibsheet.com/ibleaders.js'></script>
@@ -1061,8 +1061,11 @@
 	/* 화면내용 설정(등록인가 상세내역 확인인가) */
 	function selectView(){
 	    if('AAA' == 'AAA') {
+            
 	        LoadPage();
+            
 	        doReset();
+            
 	    }else{
 	        LoadPageDetail();
 	    }
@@ -1091,9 +1094,23 @@
 	  }
 	}
 
+    //사업장//
+    function factoryChange(e) {
+        // 선택된 데이터의 텍스트값 가져오기
+       
+        const text = e.options[e.selectedIndex].text;
+        alert(text);
+        console.log(e.options);
+        
+        // 선택한 텍스트 출력
+        //document.getElementById('result').innerText
+        //    = text;
+    }
+
 	/*Sheet 기본 설정 */
 	function LoadPage(){
-	    
+        
+
 	   createIBSheet2(document.getElementById("sheetObj1"),"Sheet1", "100%", "400px");
 	   createIBSheet2(document.getElementById("sheetObj2"),"Sheet2", "908px", "10px");
 	   createIBSheet2(document.getElementById("sheetObj3"),"Sheet3", "908px", "10px");
@@ -1124,14 +1141,18 @@
 
 	        SetEditable(1);
 	        SetVisible(1);
+            
 	        SetColProperty(5, {Format:"###########"} );
 	        SetColProperty(6, {Format:"###########"} );
-	        setSheetDefault(Sheet1); 
+            
+	        //setSheetDefault(Sheet1); 
+            
 	        
 	     }
 
 	     with(Sheet2)
 	   {
+        
 	       //지원안함[check again] if (location.hostname != "") InitHostInfo(location.hostname, location.port, page_path);
 
 	        SetConfig( { SearchMode:2, MergeSheet:5, Page:20, FrozenCol:0, DataRowMerge:1 } );
@@ -1213,12 +1234,12 @@
 	       SetEditable(0);
 	       SetVisible(0);
 	     } 
-
+            
 
 	}
 
 	function LoadPage1(){
-
+        
 	    createIBSheet2(document.getElementById("sheetObj2"),"Sheet2", "908px", "10px");
 	    createIBSheet2(document.getElementById("sheetObj3"),"Sheet3", "908px", "10px");
 	    createIBSheet2(document.getElementById("sheetObj4"),"Sheet4", "908px", "10px");
@@ -1306,13 +1327,14 @@
 	        SetEditable(0);
 	        SetVisible(0);
 	      }
-
+          
+          
 	}
 
 
 	/*Sheet 기본 설정 */
 	function LoadPageDetail(){
-
+        alert(1);
 	  //setSheetDesign(form.Sheet);
 	  createIBSheet2(document.getElementById("sheetObj1"),"Sheet1", "100%", "400px");
 	 
@@ -1339,7 +1361,8 @@
 	     InitColumns(cols);
 
 	     SetVisible(1);
-	     setSheetDefault(Sheet1); 
+	     //setSheetDefault(Sheet1); 
+         
 
 	  }
 
@@ -1350,6 +1373,7 @@
 	 */
 	function doAction(action)
 	{
+        alert(1);
 	    switch(action)
 	    {
 	        case "save"://상신
@@ -1454,6 +1478,7 @@
 
 	/* 동의 check를 하지 않았을 경우 메인 화면으로 이동 */
 	function back(){
+        alert(1);
 		 if(form.popupCheck.value != 'true'){
 	    
 	        form.action = '../index.html'
@@ -1463,6 +1488,7 @@
 	}
 	    
 	function userClean(){
+        alert(1);
 	    
 	    clearSelectBox('p_visit_factory');
 	    clearSelectBox('p_visit_space');
@@ -1535,10 +1561,14 @@
 	    }
 	}//*/
 
+    $(function(){
+        $("#p_visit_startDate").datepicker();
+    });
 	//--------------------------------------------
 	//Function : 달력에서 값을 선택한 후 Setting
 	//--------------------------------------------
 	function sendVal(year,month,day,digit,digit2) {
+        
 	    if(parseInt(month) < 10){
 	        month = "0"+month;
 	    }
@@ -1787,6 +1817,7 @@
 	//구분 선택
 	function selectDiv(){
 	    var type = form.p_want_type.value;  
+        
 	    if(type == "1"){
 	       form.p_want_car.style.display = 'inline';
 	       form.p_want_equipment.style.display = 'none';
@@ -1915,7 +1946,7 @@
 	   
 	/* 콤보박스 셋팀 */
 	function SetFactory(region,factory){
-
+        alert('setfactor');
 	clearSelectBox('p_visit_factory');
 	clearSelectBox('p_visit_space');
 	clearSelectBox('p_visit_purpose');
@@ -1923,11 +1954,11 @@
 	var j = 1;
 	var k = 1;
 	var m = 1;
-
-	    form.p_visit_factory.options[0] = new Option ('','');
-
-	    
-	        if(region == 5){
+        
+	    //form.p_visit_factory.options[0] = new Option ('','');
+        
+	    //form.p_visit_factory.options[1] = new options('포항','1');
+/*	        if(region == 5){
 	            
 	            if(factory == 1){
 
@@ -2465,7 +2496,7 @@
 	            }
 	              j = j+1;
 	        }
-	    
+	    */
 	    
 	         
 	    form.p_visit_space.options[0] = new Option ('','');
@@ -4258,8 +4289,9 @@
 	}
 	//selectBox 정보 삭제
 	function clearSelectBox(targetName){
-	        var target = document.getElementById(targetName);
-	        target.length = 0;
+	        //var target = document.getElementById(targetName);
+	        //target.length = 0;
+            
 	    }
 
 	//전단계로 돌아가기
@@ -4581,6 +4613,7 @@ function Sheet1_OnSmartResize(Width, Height) {
 function Sheet2_OnSearchEnd(Code, ErrMsg, StCode, StMsg){
      try{ 
          with(Sheet2){
+             
         	 
         	 var count = Sheet2.RowCount();
 
@@ -4744,7 +4777,7 @@ function historyGo(){
 		
 <header id="header">
 	<!--<h1><a href="/"><img src="../common/images/login_logo.gif" alt="효성" /><span>방문자 관리</span></a></h1>-->
-    <h1><a href="visit.html"><img width="10%" src="./images/VNTG_wh2.png" alt="세아" /><span>방문자 관리</span></a></h1>
+    <h1><a href="visit.html"><img width="10%" src="./public/images/VNTG_wh2.png" alt="세아" /><span>방문자 관리</span></a></h1>
 	
 	<!-- 해당 페이지에서는 li안에 클래스 "on"이 삽입됩니다. -->
 	<nav id="gn">
@@ -4817,9 +4850,10 @@ function historyGo(){
 									<tr>
 										<th scope="row"><span class="required"><em>필수입력</em></span><label for="p_user_nm">만날사람</label></th>
 										<td>
-											<div class="ins_btn ins_btn_double">
-												<input type="text" id="p_user_nm" class="input_txt"  OnKeyDown='searchk1(event)' OnFocus="check();"/>
-												<span class="btn_group"><a href="javascript:UserInfo('1');" class="btn btn_t btn_darkblue"><em>검색</em></a></span>
+                                            <div class="ins_btn ins_btn_double">
+												<!--<input type="text" id="p_user_nm" class="input_txt"  OnKeyDown='searchk1(event)' OnFocus="check();"/>-->
+                                                <input type="text" id="p_user_nm" class="input_txt">
+												<!--<span class="btn_group"><a href="javascript:UserInfo('1');" class="btn btn_t btn_darkblue"><em>검색</em></a></span>-->
 											</div>
 										</td>
 										<th scope="row"><label for="p_team_nm">팀</label></th>
@@ -4866,14 +4900,22 @@ function historyGo(){
 										    <input type="hidden" name= "p_visit_startDate_dt" value="" >
 										    <input type="hidden"  name= "p_visit_endDate_dt"  value="" >
 											<ul class="ins_date">
-												<li><input type="text" id="p_visit_startDate" placeholder="시작일 지정" class="input_txt input_calendar" value="2022-01-13"/></li>
+												<li><input type="text" id="p_visit_startDate" placeholder="시작일 지정" class="input_txt input_calendar" value="2022-01-13"/>
+                                                    <img width="20px" height="20px" class="ui-datepicker-trigger" src="images/VNTG_wh2.png" alt="날짜조회" title="날짜조회">
+                                                    
+                                                </li>
+                                                
 												<li><input type="text" id="p_visit_endDate" title="" placeholder="종료일 지정" class="input_txt input_calendar" value="2022-01-13"/></li>
 											</ul>
 										</td>
 										<th scope="row"><span class="required"><em>필수입력</em></span><label for="p_visit_factory">사업장</label></th>
 										<td>
-											<select id="p_visit_factory" class="select">
-												<option value="">선택하세요</option>
+											<select id="p_visit_factory" class="select" onchange="factoryChange(this)">
+												<option value="선택">선택하세요</option>
+                                                <option value="포항">포항공장</option>
+                                                <option value="창원">창원공장</option>
+                                                <option value="순천">순천공장</option>
+                                                <option value="군산">군산공장</option>
 											</select>
 										</td>
 										<th scope="row"><span class="required"><em>필수입력</em></span><label for="p_visit_space">방문장소</label></th>
@@ -5033,7 +5075,7 @@ function historyGo(){
 		
 <footer id="footer">
 	
-    <div class="foot_logo"><img width="30%" src="./images/VNTG_wh2.png" alt="세아제강" /></div>
+    <div class="foot_logo"><img width="30%" src="./public/images/VNTG_wh2.png" alt="세아제강" /></div>
     <!-- <div class="foot_logo"><img src="../common/images/footer_logo.gif" alt="HYOSUNG | Always by your side" /></div> -->
 	<div class="foot_copyright">
 	<!--	<a href="../vs/PRIVACY_PROCESSING.jsp" class="">개인정보처리방침</a>
@@ -5047,18 +5089,20 @@ function historyGo(){
 		$(window).on("load",function(){
 			
 			selectView();
+            
 			Sheet1.FitColWidth();
-			over.style.display = "inline";
+            
+			over.style.display = "online";  // inline 하면 안됨
 			//20190523 김민정 쿠키에 관계없이 열때마다 내용을 확인 하도록 함
 			//if ( getCookie("hyosung") !="done" ) {
-				URL = "../popup.jsp"
+				/*URL = "../popup.jsp"
 					//settings = "dialogWidth=650px;dialogHeight=650px;toolbar=no;scrollbar=yes;toolbar=no;resizable=no;location=no;menubar=no";
 				    //window.showModalDialog(URL,self,settings);
 				    settings =  "Width=650;Height=650;scrollbars=yes";
-				    popup_info = window.open(URL,'popup_Info',settings);
+				    popup_info = window.open(URL,'popup_Info',settings);*/
 			//}else{
-			//	form.p_user_nm.focus();
-			//	over.style.display = "none";
+				//form.p_user_nm.focus();
+				//over.style.display = "none";
 			//}
 			
 			

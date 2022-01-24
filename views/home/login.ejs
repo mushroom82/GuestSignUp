@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="robots" content="" />
+	<title>방문자 관리시스템 : 세아제강</title>
+	<!-- 테스트 중인 CSS -->  
+	<link href="/public/css/common.css" rel="stylesheet" type="text/css" />
+	<link href="/public/css/layout.css" rel="stylesheet" type="text/css" />
+	<link href="/public/css/style2.css" rel="stylesheet" type="text/css" />
+	<link href="/public/css/reset.css" rel="stylesheet" type="text/css" />
+	<link href="/public/css/etc.css" rel="stylesheet" type="text/css" />
+  
+  <!--
+  <link rel="stylesheet" href="./common/css/reset.css" />
+	<link rel="stylesheet" href="./common/css/common.css" />
+	 사이트 별 정의된 스타일시트 삽입 : 시작 -->
+   <!--
+	<link rel="stylesheet" href="./common/css/hs_layout.css" />
+	<link rel="stylesheet" href="./common/css/hs_style.css" />
+	 사이트 별 정의된 스타일시트 삽입 : 종료 
+	<link rel="stylesheet" href="./common/css/jquery-ui.min.css" />
+	<link rel="stylesheet" href="./common/css/etc.css" />
+	<script src="./common/js/jquery-3.3.1.min.js"></script>
+	<script src="./common/js/jquery-ui.min.js"></script>
+	<script src="./common/js/hs_common.js"></script> -->
+  
+</head>
+
+<body>
+	<div id="wrap">
+		<header id="header">
+			<h1><a href="visit.html"><img width="10%" src="./public/images/VNTG_wh2.png" alt="세아" /><span>방문자 관리</span></a></h1>
+			
+			<nav id="gn">
+				<ul>
+					<li><a href="login.html"><span>방문신청</span></a></li>
+					<li><a href="visitor.html"><span>방문신청조회</span></a></li>
+					
+				</ul>
+			</nav>
+		</header>
+		<div id="content_area" class="main_bg">
+
+			<div class="main_cnt">
+				<!-- content : s -->
+				<div class="login_guide_area">
+					<div class="mg_left_box">
+						<h2 class="">로그인정보</h2>
+						<div class="container">
+							<input type="text" placeholder="ID" id="id" class="account">
+							<input type="password" placeholder="Password" id="password" class="account">
+							<button id="btn_login" class="account">login</button>
+						</div>
+					</div>
+				</div>
+				<!-- content : e -->
+			</div>
+		</div>
+		<footer id="footer">
+			<div class="foot_logo"><img width="30%" src="./public/images/VNTG_wh2.png" alt="세아제강" /></div>
+			<div class="foot_copyright">
+				<!-- <a href="#n" class="">개인정보처리방침</a>  
+				Copyright &copy; 2009 by HYOSUNG. All rights reserved-->
+			</div>
+		</footer>
+	</div>
+	<script>
+		const id = document.getElementById('id')
+		const password = document.getElementById('password')
+		const login = document.getElementById('login')
+		let errStack = 0;
+
+		login.addEventListener('click', () => {
+			if (id.value == 'admin') {
+				if (password.value == '0') {
+					alert('로그인 되었습니다!')
+					
+				}
+				else {
+					alert('아이디와 비밀번호를 다시 한 번 확인해주세요!')
+					errStack ++;
+				}
+			}
+			else {
+				alert('존재하지 않는 계정입니다.')
+			}
+
+			if (errStack >= 5) {
+				alert('비밀번호를 5회 이상 틀리셨습니다. 비밀번호 찾기를 권장드립니다.')
+			}
+		})
+	</script>
+</body>
+</html>

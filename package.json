@@ -1,0 +1,30 @@
+{
+  "name": "guestsignup",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./bin/www.js" 
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mushroom82/GuestSignUp.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mushroom82/GuestSignUp/issues"
+  },
+  "homepage": "https://github.com/mushroom82/GuestSignUp#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "pg": "^8.7.1"
+  },
+  "keywords": [],
+  "bin": {
+    "guestsignup": "bin/www.js"
+  },
+  "devDependencies": {},
+  "description": ""
+}
